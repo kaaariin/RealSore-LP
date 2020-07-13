@@ -1,0 +1,948 @@
+$layout-width-inner: 1226px;//インナーの幅
+// ブレークポイント
+$breakpoints: (
+  "sp": "screen and (max-width: 767px)",
+  "tab": "screen and (max-width: #{$layout-width-inner - 1px})",
+  "pc": "screen and (min-width: #{$layout-width-inner})",
+);
+
+// メディアクエリー
+@mixin mq($breakpoint: sp) {
+
+  @media #{map-get($breakpoints, $breakpoint)} {
+
+    @content;
+  }
+}
+
+@mixin h1 {
+    font-family: 'DIN Condensed','Yu Gothic',sans-serif;
+    font-size: 50px;
+}
+@mixin hover {
+    cursor: pointer;
+    transform: scale(1.1, 1.1); 
+}
+@mixin menu-info {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    color: #999999;
+}
+
+body {
+    max-width: 1366px;
+    background-color: #EEEEEE;
+    margin: 0 auto;
+    
+
+    .top-img {
+        height: 600px;
+        width: 100%;
+        @include mq('sp') {
+            height: 400px;
+        }
+
+        .bg-b {
+            position: relative;
+            width: 100%;
+            
+           
+            .bg {
+                width: 100%;
+                max-width: 100%;
+                height: 600px;
+                @include mq('sp') {
+                    height: 400px;
+                }
+            }
+        }
+
+        .bg-b::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            height: 600px;
+            @include mq('sp') {
+                height: 400px;
+            }
+        }
+
+       
+    
+
+        .main-logo {
+            position: absolute;
+            top: 190px;
+            left: 30%;
+            @include mq('tab') {
+                left: 20%;
+                top: 89%x;
+            }
+            @include mq('sp') {
+                left: 20%;
+                top: 17%;
+            }
+
+            img {
+                width: 550px;
+                z-index: 1;
+                @include mq('tab') {
+                    width: 70%;
+                }
+                @include mq('sp') {
+
+                }
+            }
+        }
+        .main-logo-hidden {
+            position: absolute;
+            text-align: center;
+            width: 500px;
+            height: 153px;
+            right: 2.5rem;
+            background-color: red;
+            color: #fff;
+            font-size: 2.5rem;
+            padding: 30px;
+            font-weight: bold;
+            top: 190px;
+            left: 420px;
+            @include mq('sp') {
+                width: 60%;
+                height: 55px;
+                font-size: 1.2rem;
+                padding: 10px;
+                left: 20%;
+                top: 17%;
+            }
+            p{
+                margin: 0;
+                line-height: 3.2rem;
+                @include mq('sp') {
+                    line-height: 1.2rem;
+                }
+            }
+        }
+    }
+
+        .first {
+            margin: 0 auto;
+
+            .introduction-no1 {
+                display: flex;
+                justify-content: space-between;
+                height: 430px;
+                @include mq('tab') {
+                    height: 330px;
+                }
+                @include mq('sp') {
+                    display: block;
+                    height: auto;
+                }
+                
+
+                .content {
+                    width: 800px;
+                    @include mq('tab') {
+                        width: 40%;
+                    }
+                    @include mq('sp') {
+                        height: 200px;            
+                            width: 100%;
+                            margin-right: 0;
+                            display: flex;
+                            justify-content: space-between;
+                    }
+                   
+
+                    h1 {
+                        @include h1;
+                        text-align: center;
+                        padding-top: 60px;
+                        margin-bottom: 0;
+                        @include mq('tab') {
+                            padding-top: 0;
+                        }
+                        @include mq('sp') {
+                            margin-top: 30px;
+                            margin-left: 10px;
+                            padding-top: 0;
+                            width: 90%;
+                        }
+                    }
+                    
+                    h3 {
+                        text-align: center;
+                        @include mq('tab') {
+                            font-size: 16px;
+                        }
+                        @include mq('sp') {
+                            margin-top: 30px;
+                        }
+                    }
+
+                    p {
+                        margin: 0 auto;
+                        width: 400px;
+                        @include mq('tab') {
+                            width: 90%;
+                            font-size: 14px;
+                        }
+                        @include mq('sp') {
+                            width: 95%;
+                        }
+                    }
+                }
+
+
+                .pasta {
+                    z-index: 0;
+                    order: 2;
+                    overflow: hidden;
+                    position: relative;
+                    
+                }
+
+                img {
+                    max-width: 765px;
+                    @include mq('tab') {
+                        width: 600px;
+                    }
+                    @include mq('sp') {
+                        width: 100%;
+                    }
+                }
+
+                .pasta::before {
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    margin: auto;
+                    top: 0px;
+                    border-style: solid;
+                    border-color: transparent transparent transparent #EEEEEE;
+                    border-width: 225px 0 225px 100px;
+                    display: block;
+                    @include mq('tab') {
+                        border-width: 165px 0 165px 100px;
+
+                    }
+                    @include mq('sp') {
+                        display: none;
+                    }
+                }
+
+
+
+
+
+            }
+
+
+            .introduction-no2 {
+                margin-top: 0px;
+                display: flex;
+                justify-content: space-between;
+                height: 450px;
+                @include mq('tab') {
+                    height: 330px;
+                }
+                @include mq('sp') {
+                    display: block;
+                    height: auto;
+                }
+
+                .content {
+                    order: 2;
+                    width: 800px;
+                    @include mq('tab') {
+                        width: 40%;
+                    }
+                    @include mq('sp') {
+                        width: 100%;
+                        margin-right: 0;
+                        height: 220px;
+                        display: flex;
+                        justify-content: space-between;
+
+
+                    }
+                .title {
+                    @include mq('sp') {
+                    order: 2;
+                    }
+                    h1 {
+                        @include h1;
+                        text-align: center;
+                        padding-top: 60px;
+                    margin-bottom: 0;
+
+                    @include mq('tab') {
+                        padding-top: 0;
+                    }
+                    @include mq('sp') {
+                        margin-top: 30px;
+                        padding-top: 0;
+                        margin-right: 10px;
+                        width: 80%;
+                    }
+                    }
+                }
+                    h3 {
+                        text-align: center;
+                        @include mq('tab') {
+                            font-size: 16px;
+                        }
+                        @include mq('sp') {
+width: 90%; 
+margin: 15px auto;                           
+                        }
+                    }
+
+                    p {
+                        margin: 0 auto;
+                        width: 400px;
+                        @include mq('tab') {
+                            width: 90%;
+                            font-size: 14px;
+                        }
+                        @include mq('sp') {
+                            width: 95%;
+                            font-size: 14px;
+
+                        }
+
+                    }
+                }
+
+                .pasta {
+                    z-index: 0;
+                    position: relative;
+                    overflow: hidden;
+                }
+                    img {
+                        max-width: 765px;
+                        @include mq('tab') {
+                                width: 600px;
+                            }
+                            @include mq('sp') {
+                                width: 100%;
+                        }
+                        
+                        }
+                    
+                
+
+                .pasta::after {
+                    content: "";
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    margin: auto;
+                    top: 0px;
+                    right: 0;
+                    border-style: solid;
+                    border-color: transparent #EEEEEE transparent transparent;
+                    border-width: 225px 100px 225px 10px;
+                    @include mq('tab') {
+                        border-width: 165px 100px 165px 0px;
+                    }
+                    @include mq('sp') {
+                        display: none;
+                    }               
+                }
+
+            }
+        }
+    
+
+    .menu {
+        max-width: 1100px;
+        margin: 60px auto;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        @include mq('tab') {
+            justify-content: center;
+        }
+        @include mq('sp') {
+            display: block;
+        }
+
+
+        .lunch {
+            @include mq('tab') {
+                margin-right: 60px;
+                @include mq('sp') {
+                    margin-right: 0;
+                }
+            }
+            h2 {
+                @include h1;
+                text-align: center;
+                margin-bottom: 0;
+            }
+
+            p {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .icon-img {
+                position: relative;
+                @include mq('sp') {
+                    display: flex;
+                    justify-content: space-between;
+                    position: static;
+                }
+
+                .pasta-menu {
+                    position: relative;
+                    left: 40px;
+                    display: inline-block;
+                    transition: all 1s ease 0s;
+                    @include mq('sp') {
+                        left: 60px;
+                        margin-right: 20px;
+
+
+                    }
+                    
+                    img {
+                    @include mq('tab') {
+                        width: 80px;
+                        @include mq('sp') {
+                            width: 100px;
+                        }
+                    }
+
+                }
+
+
+                    span {
+                        position: absolute;
+                        top: 130px;
+                        left: 3px;
+                        color: #000;
+                        @include mq('tab') {
+                            font-size: 14px;
+                            width: 85px;
+                            top: 100px;
+                            @include mq('sp') {
+                                top: 125px;
+                                left: 8px;
+                            }
+                        }
+                    }
+                }
+.pasta-menu:hover {
+    @include hover;
+}
+
+
+                .vegetablejuice-menu {
+                    position: absolute;
+                    top: 0px;
+                    right: 10px;
+                    transition: all 1s ease 0s;
+                    @include mq('tab') {
+                        right: 80px;
+                    }
+                    @include mq('sp') {
+                        position: relative;
+                        margin-left: 30px;
+                    }
+                    img {
+                        @include mq('tab') {
+                            width: 80px;
+                            @include mq('sp') {
+                                width: 100px;
+                               
+                            }
+                        }
+                    }
+
+                    span {
+                        position: absolute;
+                        top: 130px;
+                        left: -5px;
+                        color: #000;
+                        width: 125px;
+                        @include mq('tab') {
+                            font-size: 14px;
+                            top: 100px;
+                        }
+                        @include mq('sp') {
+                            top: 125px;
+                        }
+                    }
+                }
+                .vegetablejuice-menu:hover {
+                    @include hover;
+                }
+
+            }
+
+            .icon-img::before {
+                font-family: "Font Awesome 5 Free";
+                content: "\f067";
+                position: absolute;
+                font-size: 30px;
+                top: 65px;
+                left: 160px;
+                font-weight: 900;
+                @include mq('tab')  {
+                left: 135px;
+                font-size: 25px;
+                }
+                @include mq('sp') {
+                    left:45%;
+                    top: 200px;
+                    margin-right: 50px;
+                }
+    
+            }
+            
+            .imfomation {
+                margin-top: 30px;
+                width: 330px;
+                @include mq('sp') {
+                    margin: 20px auto;
+                    width: 90%;
+                }
+                
+
+                p {
+                   @include menu-info;
+                   @include mq('tab') {
+                       font-size: 14px;
+                       width: 240px;
+                       margin-left: 33px;
+                   }
+                   @include mq('sp') {
+                       max-width: 375px;
+                       width: 90%;
+                       margin: 10px auto;
+                       box-sizing: border-box;
+
+                   }
+                }
+            }
+        }
+
+        .dinner {
+            margin-right: 70px;
+            @include mq('tab') {
+           position: relative;
+            }
+            @include mq('sp') {
+                position: static;
+                margin-right: 0;
+            }
+            h2 {
+                @include h1;
+                margin-bottom: 0;
+                text-align: center;
+            }
+
+            p {
+                margin-bottom: 30px;
+                text-align: center;
+
+            }
+
+            .icon-img {
+                position: absolute;
+                @include mq('sp') {
+                display: flex;
+                position: static;
+                justify-content: center;
+                padding-right: 90px;
+                }
+                
+
+
+                .pasta-menu {
+                    position: relative;
+                    right: 120px;
+                    display: inline-block;
+                    transition: all 1s ease 0s;
+                    @include mq('tab') {
+                        right: 80px;
+                        top: -15px;
+                    }
+                    @include mq('sp') {
+                        right: 40px;
+                    }
+                    img {
+                        @include mq('tab') {
+                            position: absolute;
+                            width: 70px;
+                            top: 10px;
+                        }
+                        @include mq('sp') {
+                            position: relative;
+                            width: 100px;
+                        }
+                    }
+
+                    span {
+                        position: absolute;
+                        top: 130px;
+                        left: 0px;
+                        color: #000;
+                        @include mq('tab') {
+                            font-size: 12px;
+                            width: 85px;
+                            top: 100px;
+                        }
+                        @include mq('sp') {
+                            top: 130px;
+                            left: 10px;
+                            font-size: 14px;
+                        }
+                        
+                    }
+                }
+                .pasta-menu:hover {
+                    @include hover; 
+                }
+
+                .pizza-menu {
+                    position: absolute;
+                    top: 30px;
+                    left: 10px;
+                    transition: all 1s ease 0s;
+                    @include mq('tab') {
+                        top: 25px;
+                        left: 0px;
+                    }
+                    @include mq('sp') {
+                        position: relative;
+                    }
+                    img {
+                        @include mq('tab') {
+                            width: 70px;
+                            position: absolute;
+                            top: 10px;
+                        }
+                        @include mq('sp') {
+                            position: relative;
+                            width: 100px;
+                            top: 0;
+                            right: 15px;
+                        }
+                    }
+                    span {
+                        position: absolute;
+                        top: 100px;
+                        left: 0px;
+                        color: #000;
+                        width: 125px;
+                        @include mq('tab') {
+                            font-size: 12px;
+                            width: 85px;
+                            top: 78px;
+                        }
+                        @include mq('sp') {
+                            top:90px;
+                            font-size: 14px;
+                            left: -5px;
+                        }
+                    }
+                }
+                .pizza-menu:hover {
+                    @include hover;
+                }
+                .whinner-menu {
+                    position: absolute;
+                    top: 0px;
+                    left: 130px;
+                    transition: all 1s ease 0s;
+                    @include mq('tab') {
+                        left: 85px;
+                    }
+                    @include mq('sp') {
+                        position: relative;
+                        left: 0;
+                    }
+                   
+                    img {
+                        @include mq('tab') {
+                            position: absolute;
+                            width: 70px;
+                            top: 10px;
+                        }
+                        @include mq('sp') {
+                            width: 100px;
+                            height: 100px;
+                        }
+                    }
+                    span {
+                        position: absolute;
+                        top: 130px;
+                        left: 0px;
+                        color: #000;
+                        width: 125px;
+                        @include mq('tab') {
+                            font-size: 12px;
+                            top: 103px;
+                            left: -5px;
+                        }@include mq('sp') {
+                            font-size: 14px;
+                            top: 115px;
+                            left: 3px;
+                        }
+                    }
+                }
+                .whinner-menu:hover {
+                    @include hover;
+                }
+               
+            }
+
+            .imfomation {
+                position: absolute;
+                top: 320px;
+                right: 270px;
+                width: 400px;
+                @include mq('tab') {
+                    top: 300px;
+                    left: -80px;
+                }
+                @include mq('sp') {
+                    position: static;
+                    margin: 0 auto;
+                    width: 90%;
+
+
+                }
+                
+
+                p {
+                    @include menu-info;
+                    @include mq('tab') {
+                        font-size: 14px;
+                        width: 250px;
+                    }
+                    @include mq('sp') {
+                        width: 90%;
+                        margin: 10px auto;
+                    }
+                   
+
+                }
+
+            }
+            
+        }
+
+        .drink {
+            @include mq('tab') {
+                margin-left: 70px;
+                position: relative;
+            }
+            @include mq('sp') {
+                position: static;
+                margin-left: 0;
+            }
+            h2 {
+                @include h1;
+                margin-bottom: 0;
+                margin-right: 40px;
+                @include mq('tab') {
+                    margin-right: 50px;
+                }
+                @include mq('sp') {
+                    text-align: center;
+                    margin-right: 0;
+                }
+            }
+
+            .drink-menu {
+                position: absolute;
+                top: 170px;
+                transition: all 1s ease 0s;
+                @include mq('tab') {
+                }
+                @include mq('sp') {
+                    position: static;
+text-align: center;                }
+                img {
+                    @include mq('tab') {
+                        width: 80px;
+                    }
+                    @include mq('sp') {
+                        width: 100px;
+                    }
+                }
+            }
+            .drink-menu:hover {
+                @include hover;
+
+            }
+
+            .imfomation {
+                position: absolute;
+                top: 320px;
+                right: -50px;
+               width: 250px;
+                @include mq('tab') {
+                    top: 300px;
+                    width: 130px;
+                    left: -20px;
+                }
+                @include mq('sp') {
+                    position: static;
+                    width: 90%;
+                    margin: 0 auto;
+
+                }
+
+                p {
+                    @include menu-info;
+                    @include mq('tab') {
+                        font-size: 14px;
+                    }
+                    @include mq('sp') {
+                        width: 90%;
+                        margin: 10px auto;
+
+                    }
+                }
+            }
+        }
+    }
+
+    .map {
+        .address-map {
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 44.3%;
+            /* = height ÷ width × 100 */
+            @include mq('sp') {
+                padding-bottom: 64.3%;
+            }
+
+            iframe {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100% !important;
+                height: 100% !important;
+
+            }
+        }
+    }
+}
+
+    .footer {
+        display: flex;
+        margin: 60px auto;
+        max-width: 1100px;
+        justify-content: space-around;
+        @include mq('sp') {
+            display: block;
+            text-align: center;
+        }
+        h3 {
+            @include mq('sp') {
+                margin-bottom: 0;
+            }
+        }
+         p {
+             @include mq('tab') {
+                 font-size: 12px;
+             }
+             @include mq('sp') {
+                 margin: 0 auto;
+             }
+         }
+
+        .logo {
+            position: relative;
+            img {
+                width: 200px;
+                @include mq('tab') {
+                    width: 150px;
+                }
+            }
+            .main-logo-hidden {
+                position: absolute;
+                top: 0;
+                background-color: #000;
+                color:#fff;
+                width: 150px;
+                height: 150px;
+                padding: 4rem 1.5rem 1.5rem;
+                p {
+                    margin: 0;
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                    line-height: 1.5rem;
+                    text-align: center;
+                    @include mq('sp') {
+                        font-size: 1rem;
+                    }
+                    
+                }
+                @include mq('sp') {
+                    width: 100px;
+                    right: 0;
+                    left: 0;
+                    margin: 0 auto;
+                    height: 120px;
+                }
+            }
+        }
+        .assress {
+         @include mq('tab') {
+
+         }
+        }
+        .sns {
+            position: relative;
+            @include mq('tab') {
+                margin-right: 20px;
+                text-align: center;
+            }
+            @include mq('sp') {
+                text-align: center;
+            }
+            a {
+                text-decoration: none;
+            }
+            i {
+                font-size: 50px;
+                color: #000;
+            }
+            span {
+                position: absolute;
+                top: 120px;
+                left: -18px;
+                width: 100px;
+                color: #000;
+                @include mq('tab') {
+                   position: static;
+                   display: block;
+                   font-size: 12px;
+                }
+                @include mq('sp') {
+                    margin: 0 auto;
+                }
+            }
+        }
+        
+        
+        
+    
+
+    }
+
